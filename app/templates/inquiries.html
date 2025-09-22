@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>문의 메일 목록</title>
+</head>
+<body>
+  <h2>문의 메일 목록</h2>
+  <table border="1" cellpadding="6">
+    <tr><th>날짜</th><th>발신자</th><th>제목</th><th>스니펫</th><th></th></tr>
+    {% for r in results %}
+    <tr>
+      <td>{{ r.date }}</td>
+      <td>{{ r.from }}</td>
+      <td>{{ r.subject }}</td>
+      <td>{{ r.snippet }}</td>
+      <td><a href="/inquiries/reply?id={{ r.id }}">답장 초안 보기</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>

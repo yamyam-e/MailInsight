@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>문의 메일 (phi-4 분류)</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 0; padding: 0;
+      background: #f9fafb;
+      color: #111827;
+    }
+    header {
+      background: #1f2937;
+      color: white;
+      padding: 20px 40px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+    header p {
+      margin: 5px 0 0 0;
+      font-size: 14px;
+      color: #d1d5db;
+    }
+    main {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    th, td {
+      padding: 12px 14px;
+      text-align: left;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    th {
+      background: #f3f4f6;
+      font-size: 14px;
+    }
+    td {
+      font-size: 14px;
+      vertical-align: top;
+    }
+    tr:hover td {
+      background: #f9fafc;
+    }
+    details {
+      background:#fafafa;
+      padding:8px;
+      border:1px solid #e5e7eb;
+      border-radius:6px;
+    }
+    summary {
+      cursor:pointer;
+      font-weight:600;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 8px 14px;
+      background: #2563eb;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .back-link:hover {
+      background: #1e40af;
+    }
+    table {
+      table-layout: fixed;   /* 열 너비 고정 */
+      width: 100%;
+    }  
+    td, th {
+      word-wrap: break-word; /* 긴 단어 줄바꿈 */
+      white-space: pre-wrap; /* 줄바꿈+공백 유지 */
+      vertical-align: top;
+    }
+    pre {
+      white-space: pre-wrap;   /* 긴 줄도 자동 줄바꿈 */
+      word-wrap: break-word;
+      overflow-x: auto;        /* 필요 시 가로 스크롤 */
+      max-width: 100%;         /* 화면 밖으로 안 나가게 */
+      box-sizing: border-box;  /* padding 포함 */
+    } 
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🤖 Phi-4 기반 문의 메일 자동 생성</h1>
+    <p>AI가 분류한 문의 메일과 자동 답장 초안을 확인하세요</p>
+  </header>
+  <main>
+    <table>
+      <tr>
+        <th>날짜</th>
+        <th>발신자</th>
+        <th>제목</th>
+        <th>본문 요약</th>
+        <th>자동 답장 초안</th>
+      </tr>
+      {% for r in results %}
+      <tr>
+        <td>{{ r.date }}</td>
+        <td>{{ r.from }}</td>
+        <td>{{ r.subject }}</td>
+        <td>{{ r.snippet }}</td>
+        <td>
+          <details>
+            <summary>자동작성</summary>
+<pre>{{ r.draft }}</pre>
+          </details>
+        </td>
+      </tr>
+      {% endfor %}
+      {% if results|length == 0 %}
+      <tr><td colspan="5">문의 메일이 없습니다.</td></tr>
+      {% endif %}
+    </table>
+    <a href="/" class="back-link">← 홈으로 돌아가기</a>
+  </main>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>MailInsight 홈</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 0; padding: 0;
+      background: #f9fafb;
+      color: #111827;
+    }
+    header {
+      background: #1f2937;
+      color: white;
+      padding: 20px 40px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+    header p {
+      margin: 5px 0 0 0;
+      font-size: 14px;
+      color: #d1d5db;
+    }
+    main {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .card h2 {
+      font-size: 18px;
+      margin: 0 0 10px 0;
+    }
+    .card p {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 15px;
+    }
+    .card a {
+      display: inline-block;
+      padding: 8px 16px;
+      background: #2563eb;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+    .card a:hover {
+      background: #1e40af;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📧 MailInsight</h1>
+    <p>문의 메일 자동 탐지 및 답변 초안 생성 도우미</p>
+  </header>
+  <main>
+    <div class="menu-grid">
+      <div class="card">
+        <h2>🤖 Phi-4 기반 문의 메일 자동 생성</h2>
+        <p>LLM이 직접 분류한 문의 메일과 답변 초안 확인</p>
+        <a href="/inquiries/phi4">바로가기</a>
+      </div>
+      <div class="card">
+        <h2>📜 API 문서</h2>
+        <p>Swagger UI에서 MailInsight API 확인</p>
+        <a href="/docs" target="_blank">바로가기</a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
